@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flashcards</title>
+  <link rel="stylesheet" href="styles/index.css">
+</head>
+<body>
+ 
+  <div class="header-container">
+    <h1>Flashcards</h1>
+    <img src="public/logo.png" alt="Logo" class="logo">
+  </div>
+
+  <button class="create-btn" onclick="location.href='createflash.html'">Create Flashcards</button>
+
+  <section id="previous-flashcards">
+    <h2>Previous Flashcards</h2>
+    <div id="subjectsContainer">
+    </div>
+  </section>
+
+  <script>
+  
+    const subjectsContainer = document.getElementById('subjectsContainer');
+    //Loads the subjects to view what subjects flashcard we have already creaated
+    function loadSubjects() {
+      const storedData = JSON.parse(localStorage.getItem('flashcards')) || {};
+      subjectsContainer.innerHTML = ''; // Clear previous content
+
+      if (Object.keys(storedData).length === 0) {
+        subjectsContainer.innerHTML = '<p>No flashcards found. Create some to get started!</p>';
+        return;
+      }
+
+      Object.keys(storedData).forEach((subject) => {
+        const button = document.createElement('button');
+        button.className = 'subject-btn';
+        button.textContent = subject;
+        button.onclick = () => viewFlashcards(subject);
+        subjectsContainer.appendChild(button);
+      });
+    }
+
+    function viewFlashcards(subject) {
+       
+  const storedData = JSON.parse(localStorage.getItem('flashcards')) || {};
+  const selectedFlashcards = storedData[subject];
+
+  if (!selectedFlashcards) {
+    alert(`No flashcards found for: ${subject}`);
+    return;
+  }
+
+  localStorage.setItem('currentSubject', subject);
+  localStorage.setItem('currentFlashcards', JSON.stringify(selectedFlashcards));
+
+  window.location.href = 'quiz.html';
+}
+
+
+    
+    window.onload = loadSubjects;
+  </script>
+</body>
+</html>

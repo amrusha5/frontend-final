@@ -1,0 +1,106 @@
+html, body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Full height for the page */
+  background: linear-gradient(155deg, #007bff, #7abd2f);
+  background-attachment: fixed; /* Keeps the gradient smooth during scroll */
+  background-size: cover; /* Ensures the gradient covers the entire viewport */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-container {
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.header-container h1 {
+  font-size: 3rem;
+  margin-right: 10px;
+  color: #fff;
+}
+
+
+.logo {
+  width: 50px;
+  height: 50px;
+}
+
+
+h1 {
+  font-size: 3rem;
+  margin: 20px 0; 
+}
+
+
+.create-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: #1a73e8;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 200px;
+}
+
+.create-btn:hover {
+  background-color: #004aad;
+}
+
+
+#previous-flashcards {
+  margin-top: 40px;
+  width: 100%;
+  max-width: 800px; 
+  text-align: center;
+}
+
+
+#previous-flashcards h2 {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 30px; 
+}
+
+
+.subject-btn {
+  display: block; /* to stack the buttons vertically*/
+  width: 90%; 
+  max-width: 400px; 
+  margin: 10px auto; 
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #16ff3d;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.subject-btn:hover {
+  background-color: #6d9e3f;
+}
+
+@media (max-width :768px){
+
+  .header-container {
+    margin-top: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+  }
+  .create-btn {
+    margin: 0px;
+  }
+}
